@@ -1,2 +1,2 @@
-# NodejsBlogApp
-A blog app made using ExpressJS.
+# AngularBlogApp
+A blog app made using Express and AngularJS.
