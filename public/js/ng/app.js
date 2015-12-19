@@ -8,7 +8,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
     }).when('/joey', {
         controller: 'JoeyCtrl',
         controllerAs: 'app',
-        'templateUrl': '/js/ng/partials/main.html'
+        templateUrl: '/js/ng/partials/main.html'
     }).otherwise({
         redirectTo: '/'
     });
