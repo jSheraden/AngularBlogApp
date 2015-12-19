@@ -1,5 +1,7 @@
+// Initialize AngularBlogApp.
 var app = angular.module('AngularBlogApp', ['ngRoute'])
 
+// Define routes.
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
         controller: 'MainCtrl',
@@ -14,6 +16,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
     });
 }])
 
+// Define controllers.
 .controller('MainCtrl', ['$scope', function($scope) {
     $scope.title = 'Home';
     $scope.message = 'This is the home page.';
