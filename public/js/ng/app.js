@@ -10,7 +10,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   }).when('/joey', {
     controller: 'JoeyCtrl',
     controllerAs: 'app',
-    templateUrl: '/js/ng/partials/main.html'
+    templateUrl: '/js/ng/partials/joey.html'
   }).otherwise({
     redirectTo: '/'
   });
@@ -18,8 +18,14 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 
 // Define controllers.
 .controller('MainCtrl', ['$scope', function($scope) {
-  $scope.title = 'Home';
-  $scope.message = 'This is the home page.';
+  /* $http({
+    method: 'GET',
+    url: '/posts'
+  }).success(function(res) {
+    $scope.posts = res;
+  }); */
+
+  $scope.title = 'Blog';
 }])
 
 .controller('JoeyCtrl', ['$scope', function($scope) {

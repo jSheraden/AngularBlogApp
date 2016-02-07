@@ -1,2 +1,7 @@
 <h1 ng-bind="title"></h1>
-<p ng-bind="message"></p>
+<ul>
+  <li ng-repeat="post in posts">
+    <h2 ng-bind="post.title"></h2>
+    <p ng-bind="post.body"></p>
+  </li>
+</ul>
