@@ -10,13 +10,6 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
     templateUrl: '/js/ng/partials/main.html'
   })
 
-  // Route for showing an individual post.
-  .when('/post/:id/:slug', {
-    controller: 'ShowCtrl',
-    controllerAs: 'app',
-    templateUrl: '/js/ng/partials/show.html'
-  })
-
   // Route for creating a new post.
   .when('/new', {
     controller: 'NewCtrl',
@@ -24,6 +17,13 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
     templateUrl: '/js/ng/partials/new.html'
   })
   
+  // Route for showing an individual post.
+  .when('/post/:id/:slug', {
+    controller: 'ShowCtrl',
+    controllerAs: 'app',
+    templateUrl: '/js/ng/partials/show.html'
+  })
+
   // Route for editing a post.
   .when('/post/:id/edit', {
     controller: 'EditCtrl',
@@ -63,13 +63,13 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   $scope.title = 'Blog';
 }])
 
+// Controller for creating a new post.
+.controller('NewCtrl', ['$scope', function($scope) {
+}])
+
 // Controller for viewing an individual post.
 .controller('ShowCtrl', ['$scope', function($scope) {
 
-}])
-
-// Controller for creating a new post.
-.controller('NewCtrl', ['$scope', function($scope) {
 }])
 
 // Controller for editing a post.
