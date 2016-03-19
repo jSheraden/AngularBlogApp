@@ -17,6 +17,13 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
     templateUrl: '/js/ng/partials/show.html'
   })
 
+  // Route for creating a new post.
+  .when('/new', {
+    controller: 'NewCtrl',
+    controllerAs: 'app',
+    templateUrl: '/js/ng/partials/new.html'
+  })
+  
   // Route for editing a post.
   .when('/post/:id/edit', {
     controller: 'EditCtrl',
