@@ -55,7 +55,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 .controller('MainCtrl', ['$scope', function($scope) {
   $http({
     method: 'GET',
-    url: '/posts'
+    url: '/posts/postlist'
   }).success(function(res) {
     $scope.posts = res;
   });
