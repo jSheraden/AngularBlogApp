@@ -3,10 +3,10 @@ var router = express.Router();
 
 router.get('/postlist', function(req, res) {
   var db = req.db;
-  var blogPosts = db.get('blogPosts');
-
-  posts.find({}, {}, function(e, posts) {
-    res.json(posts);
+  var posts = db.get('postlist');
+  
+  posts.find({}, {}, function(err, items) {
+    res.json(items);
   });
 });
 

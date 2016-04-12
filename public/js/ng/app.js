@@ -52,7 +52,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 }])
 
 // Controller for home page.
-.controller('MainCtrl', ['$scope', function($scope) {
+.controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
   $http({
     method: 'GET',
     url: '/posts/postlist'
