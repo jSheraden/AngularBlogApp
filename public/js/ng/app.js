@@ -53,10 +53,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 
 // Controller for home page.
 .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
-  $http({
-    method: 'GET',
-    url: '/posts/postlist'
-  }).success(function(res) {
+  $http.get('/posts/postlist/').success(function(res) {
     $scope.posts = res;
   });
 
@@ -64,12 +61,39 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 }])
 
 // Controller for creating a new post.
-.controller('NewCtrl', ['$scope', function($scope) {
+.controller('NewCtrl', ['$scope', '$http', function($scope, $http) {
+  // Post new article to the database.
+  $scope.postNewArticle = function() {
+    $http.post('/posts/postlist', {
+      author: $scope.author,
+	  title: $scope.postTitle,
+	  slug: $scope.getPostSlug(),
+	  date: $scope.getPostDate(),
+	  body: $scope.body
+	}).success(function(){
+      window.location = '/';
+	});
+  }
+  
+  // Get slug for new post.
+  $scope.getPostSlug = function() {
+    return null;
+  }
+  
+  // Get date for new slug.
+  $scope.getPostDate = function() {
+    return null;
+  }
+  
+  $scope.title = 'New Post';
 }])
 
 // Controller for viewing an individual post.
-.controller('ShowCtrl', ['$scope', function($scope) {
-
+.controller('ShowCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+  $http.get('/posts/postlist/?filter[_id]=' + $routeParams.page).success(function(res) {
+    $scope.post = res[0];
+	$scope.title = $scope.post.title;
+  });
 }])
 
 // Controller for editing a post.

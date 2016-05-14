@@ -1,0 +1,8 @@
+<h1 ng-bind="title"></h1>
+
+<form type="submit" ng-submit="postNewArticle()">
+  <p><input type="text" placeholder="Author" ng-model="author" /></p>
+  <p><input type="text" placeholder="Title" ng-model="postTitle" /></p>
+  <p><textarea placeholder="Enter text" ng-model="body"></textarea></p>
+  <p><input type="submit" value="Post" /></p>
+</form>

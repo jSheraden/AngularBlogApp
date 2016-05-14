@@ -1,7 +1,9 @@
 <h1 ng-bind="title"></h1>
 <ul>
   <li ng-repeat="post in posts">
-    <h2 ng-bind="post.title"></h2>
+    <a href="#/post/{{post.id}}/{{post.slug}}">
+	  <h2 ng-bind="post.title"></h2>
+    </a>
     <p ng-bind="post.body"></p>
   </li>
 </ul>

@@ -7,7 +7,9 @@ html(lang='en-US', ng-app='AngularBlogApp')
     script(src='/js/bower_components/angular-route/angular-route.min.js')
     script(src='/js/ng/app.js')
   body
-    block content
     a(href='#/') Home
     span &nbsp;|&nbsp;
+    a(href='#/new') New Post
+    span &nbsp;|&nbsp;
     a(href='#/joey') Joey's Page
+    block content
