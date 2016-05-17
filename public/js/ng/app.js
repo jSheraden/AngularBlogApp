@@ -53,7 +53,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 
 // Controller for home page.
 .controller('MainCtrl', ['$scope', '$http', function($scope, $http) {
-  $http.get('/posts/postlist/').success(function(res) {
+  $http.get('/posts/postlist').success(function(res) {
     $scope.posts = res;
   });
 
@@ -61,18 +61,18 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 }])
 
 // Controller for creating a new post.
-.controller('NewCtrl', ['$scope', '$http', function($scope, $http) {
+.controller('NewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
   // Post new article to the database.
   $scope.postNewArticle = function() {
-    $http.post('/posts/postlist', {
+    $http.post('/posts/addpost', {
       author: $scope.author,
 	  title: $scope.postTitle,
 	  slug: $scope.getPostSlug(),
 	  date: $scope.getPostDate(),
 	  body: $scope.body
-	}).success(function(){
-      window.location = '/';
-	});
+	}).success(function(data) {
+      $location.path('/');
+    });
   }
   
   // Get slug for new post.
