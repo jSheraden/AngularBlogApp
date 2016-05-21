@@ -24,6 +24,13 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
     templateUrl: '/js/ng/partials/show.html'
   })
 
+  // Alternate route for showing posts.
+  .when('/post/:id', {
+    controller: 'ShowCtrl',
+    controllerAs: 'app',
+    templateUrl: '/js/ng/partials/show.html'	
+  })
+  
   // Route for editing a post.
   .when('/post/:id/edit', {
     controller: 'EditCtrl',
@@ -90,8 +97,8 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 
 // Controller for viewing an individual post.
 .controller('ShowCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-  $http.get('/posts/postlist/?filter[_id]=' + $routeParams.page).success(function(res) {
-    $scope.post = res[0];
+  $http.get('/posts/postlist/' + $routeParams.id).success(function(res) {
+    $scope.post = res.post;
 	$scope.title = $scope.post.title;
   });
 }])
@@ -103,7 +110,9 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 
 // Controller for deleting a post.
 .controller('DeleteCtrl', ['$scope', function($scope) {
-
+  $http.delete('/deletepost/' + $routeParams.id).success(function(res) {
+    window.location('/');
+  });
 }])
 
 // Controller for my page.
