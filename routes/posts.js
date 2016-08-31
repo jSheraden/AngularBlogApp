@@ -39,7 +39,7 @@ router.delete('/deletepost/:id', function(req, res) {
   var posts = db.get('postlist');
   
   posts.removeById(id, function(err, result) {
-    res.send((result == 1) ? { msg: '' } : { msg: 'error: ' + err });
+    res.send((result === 1) ? { msg: '' } : { msg: 'error: ' + err });
   });
 });
 

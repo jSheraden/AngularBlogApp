@@ -32,7 +32,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   })
   
   // Route for editing a post.
-  .when('/post/:id/edit', {
+  .when('/post/edit/:id', {
     controller: 'EditCtrl',
     controllerAs: 'app',
     templateUrl: '/js/ng/partials/edit.html'
