@@ -15,7 +15,13 @@ router.get('/showpost/:id', function(req, res) {
   var db = req.db;
   var posts = db.get('postlist');
   
-  res.json({ post: posts[id] });
+  posts.find({}, {}, function(err, items) {
+    var post = items.filter(function(item) {
+	  return item._id == id;
+	});
+	
+	res.json(post);
+  });
 });
 
 router.post('/addpost', function(req, res) {

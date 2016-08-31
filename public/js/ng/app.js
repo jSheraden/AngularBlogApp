@@ -97,8 +97,8 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 
 // Controller for viewing an individual post.
 .controller('ShowCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-  $http.get('/posts/postlist/' + $routeParams.id).success(function(res) {
-    $scope.post = res.post;
+  $http.get('/posts/showpost/' + $routeParams.id).success(function(res) {
+    $scope.post = res;
 	$scope.title = $scope.post.title;
   });
 }])
