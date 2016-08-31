@@ -33,7 +33,7 @@ router.post('/addpost', function(req, res) {
   });
 });
 
-router.delete('/deletepost/:id', function(err, items) {
+router.delete('/deletepost/:id', function(req, res) {
   var id = req.params.id;
   var db = req.db;
   var posts = db.get('postlist');
