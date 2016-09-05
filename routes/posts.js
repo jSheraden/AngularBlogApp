@@ -10,7 +10,7 @@ router.get('/postlist', function(req, res) {
   });
 });
 
-router.get('/showpost/:id', function(req, res) {
+router.get('/:id', function(req, res) {
   var id = req.params.id;
   var db = req.db;
   var posts = db.get('postlist');
@@ -33,13 +33,14 @@ router.post('/addpost', function(req, res) {
   });
 });
 
-router.delete('/deletepost/:id', function(req, res) {
+router.delete('/:id', function(req, res, next) {
   var id = req.params.id;
   var db = req.db;
   var posts = db.get('postlist');
   
   posts.removeById(id, function(err, result) {
-    res.send((result === 1) ? { msg: '' } : { msg: 'error: ' + err });
+    if (err) throw err;
+    res.send(200);
   });
 });
 
