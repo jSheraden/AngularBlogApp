@@ -61,28 +61,16 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 }])
 
 // Controller for creating a new post.
-.controller('NewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location) {
+.controller('NewCtrl', ['$scope', '$http', function($scope, $http) {
   // Post new article to the database.
-  $scope.postNewArticle = function() {
+  $scope.createPost = function() {
     $http.post('/posts/addpost', {
       author: $scope.author,
 	  title: $scope.postTitle,
-	  slug: $scope.getPostSlug(),
-	  date: $scope.getPostDate(),
 	  body: $scope.body
 	}).success(function(data) {
-      $location.path('/');
+      window.location = '/';
     });
-  }
-  
-  // Get slug for new post.
-  $scope.getPostSlug = function() {
-    return null;
-  }
-  
-  // Get date for new slug.
-  $scope.getPostDate = function() {
-    return null;
   }
   
   $scope.title = 'New Post';
@@ -96,15 +84,29 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   });
   
   $scope.deletePost = function() {
-    $http.delete('/posts/' + $routeParams.id).success(function() {
-      $location.path('/');
+    $http.delete('/posts/' + $routeParams.id).success(function(data) {
+      window.location = '/';
     });
   }
 }])
 
 // Controller for editing a post.
-.controller('EditCtrl', ['$scope', function($scope) {
-
+.controller('EditCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+  $http.get('/posts/' + $routeParams.id).success(function(res) {
+    $scope.post = res[0];
+  });
+  
+  $scope.updatePost = function() {
+    $http.put('/posts/' + $routeParams.id, {
+      author: $scope.author,
+	  title: $scope.postTitle,
+	  body: $scope.body
+    }).success(function(data) {
+      window.location = '/';
+	});
+  }
+  
+  $scope.title = 'Edit Post';
 }])
 
 // Controller for my page.

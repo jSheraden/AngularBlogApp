@@ -33,6 +33,17 @@ router.post('/addpost', function(req, res) {
   });
 });
 
+router.put('/:id', function(req, res) {
+  var id = req.params.id;
+  var db = req.db;
+  var posts = db.get('postlist');
+  
+  posts.updateById(id, function(err, result) {
+    if (err) throw err;
+    res.send(200);
+  });
+});
+
 router.delete('/:id', function(req, res, next) {
   var id = req.params.id;
   var db = req.db;
