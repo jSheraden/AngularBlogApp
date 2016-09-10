@@ -11,7 +11,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   })
 
   // Route for creating a new post.
-  .when('/new', {
+  .when('/post/new', {
     controller: 'NewCtrl',
     controllerAs: 'app',
     templateUrl: '/js/ng/partials/new.html'
