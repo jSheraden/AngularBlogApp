@@ -84,7 +84,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   });
   
   $scope.deletePost = function() {
-    $http.delete('/posts/' + $routeParams.id).success(function(data) {
+    $http.delete('/posts/' + $routeParams.id).success(function(res) {
       window.location = '#';
     });
   }
