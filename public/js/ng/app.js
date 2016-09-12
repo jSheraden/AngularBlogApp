@@ -69,7 +69,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 	  title: $scope.postTitle,
 	  body: $scope.body
 	}).success(function(data) {
-      window.location = '/';
+      window.location = '#';
     });
   }
   
