@@ -85,7 +85,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
   
   $scope.deletePost = function() {
     $http.delete('/posts/' + $routeParams.id).success(function(data) {
-      window.location = '/';
+      window.location = '#';
     });
   }
 }])
@@ -102,7 +102,7 @@ var app = angular.module('AngularBlogApp', ['ngRoute'])
 	  title: $scope.postTitle,
 	  body: $scope.body
     }).success(function(data) {
-      window.location = '/';
+      window.location = '#';
 	});
   }
   
