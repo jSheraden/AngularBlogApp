@@ -2,15 +2,31 @@ doctype html
 html(lang='en-US', ng-app='AngularBlogApp')
   head
     title= title
-    link(rel='stylesheet', href='/css/style.css')
     script(src='/js/node_modules/angular/angular.min.js')
     script(src='/js/node_modules/angular-route/angular-route.min.js')
     script(src='/js/node_modules/angular-model/src/angular-model.js')
+    script(src='/js/node_modules/materialize-css/dist/js/materialize.min.js')
+    link(rel='stylesheet', href='/js/node_modules/materialize-css/dist/css/materialize.min.css')
     script(src='/js/ng/app.js')
   body
-    a(href='#/') Home
-    span &nbsp;|&nbsp;
-    a(href='#/post/new') New Post
-    span &nbsp;|&nbsp;
-    a(href='#/joey') Joey's Page
+    // Site wrapper
+    .site-wrapper.grey.lighten-3
+      // Site navigation bar
+      nav.green
+        .nav-wrapper.container
+          // Home button
+          a.brand-logo(href='#/') Blog
+
+          // Mobile menu button
+          a.button-collapse(href='#', data-activates='mobile-demo')
+            i.material-icons menu
+
+          // Normal site menu
+          ul.right.hide-on-med-and-down
+            li
+              a(href='#/') Home
+            li
+              a(href='#/post/new') New Post
+            li
+              a(href='#/joey') Joey's Page
     block content
