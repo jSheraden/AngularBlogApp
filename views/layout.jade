@@ -2,15 +2,19 @@ doctype html
 html(lang='en-US', ng-app='AngularBlogApp')
   head
     title= title
+    script(src='/js/node_modules/jquery/dist/jquery.min.js')
     script(src='/js/node_modules/angular/angular.min.js')
     script(src='/js/node_modules/angular-route/angular-route.min.js')
     script(src='/js/node_modules/angular-model/src/angular-model.js')
     script(src='/js/node_modules/materialize-css/dist/js/materialize.min.js')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/icon?family=Material+Icons')
     link(rel='stylesheet', href='/js/node_modules/materialize-css/dist/css/materialize.min.css')
+
     script(src='/js/ng/app.js')
-  body
+    script(src='/js/script.js')
+  body.grey.lighten-3
     // Site wrapper
-    .site-wrapper.grey.lighten-3
+    .site-wrapper
       // Site navigation bar
       nav.green
         .nav-wrapper.container
@@ -18,7 +22,7 @@ html(lang='en-US', ng-app='AngularBlogApp')
           a.brand-logo(href='#/') Blog
 
           // Mobile menu button
-          a.button-collapse(href='#', data-activates='mobile-demo')
+          a.button-collapse(href='#!', data-activates='mobile-demo')
             i.material-icons menu
 
           // Normal site menu
@@ -29,4 +33,40 @@ html(lang='en-US', ng-app='AngularBlogApp')
               a(href='#/post/new') New Post
             li
               a(href='#/joey') Joey's Page
-    block content
+
+          // Mobile site menu
+          ul.side-nav#mobile-demo
+            li
+              a(href='#/') Home
+            li
+              a(href='#/post/new') New Post
+            li
+              a(href='#/joey') Joey's Page
+
+      block content
+
+      // Site footer
+      footer.page-footer.grey.darken-3
+        .green-bottom-border
+          .container
+            .row
+              // Footer content
+              .col.l6.s12
+                h5.white-text Site
+                ul
+                  li
+                    a.grey-text.text-lighten-3(href='#/') Home
+                  li
+                    a.grey-text.text-lighten-3(href='#/post/new') New Post
+                  li
+                    a.grey-text.text-lighten-3(href='#/joey') Joey's Page
+              .col.l6.s12
+                h5.white-text Contact Me
+                ul
+                  li
+                    a.grey-text.text-lighten-3(href='http://github.com/jSheraden') GitHub
+
+        // Footer copyright
+        .footer-copyright
+          .container
+            span.white-text &copy; 2016

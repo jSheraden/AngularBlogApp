@@ -1,8 +1,31 @@
-<h1 ng-bind="title"></h1>
+<div class="card-panel">
+  <h3 class="green-text text-darken-1" ng-bind="title"></h3>
 
-<form ng-submit="createPost()">
-  <p><input type="text" placeholder="Author" ng-model="author" /></p>
-  <p><input type="text" placeholder="Title" ng-model="postTitle" /></p>
-  <p><textarea placeholder="Enter text" ng-model="body"></textarea></p>
-  <p><input type="submit" value="Post" /></p>
-</form>
+  <!-- Post creation form -->
+  <form class="col s12" ng-submit="createPost()">
+    <div class="row">
+	  <!-- Post author -->
+      <div class="input-field col s12 l12">
+	    <input id="post-author" class="validate" type="text" ng-model="author">
+		<label for="post-author">Author</label>
+      </div>
+	  
+	  <!-- Post title -->
+	  <div class="input-field col s12 l12">
+	    <input id="post-title" class="validate" type="text" ng-model="postTitle">
+		<label for="post-title">Title</label>
+      </div>
+	  
+	  <!-- Post body -->
+	  <div class="input-field col s12 l12">
+	    <textarea id="post-body" class="materialize-textarea validate" ng-model="body"></textarea>
+		<label for="post-body">Body</label>
+	  </div>
+	  
+	  <!-- Submit button -->
+	  <div class="input-field col s12 l16">
+        <button class="btn waves-effect waves-light green" type="submit">Submit</button>
+	  </div>
+	</div>
+  </form>
+</div>
