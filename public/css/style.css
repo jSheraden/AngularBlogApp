@@ -1,5 +1,9 @@
 body {
+  margin: 0;
+}
 
+.card-panel {
+  box-shadow: none !important;
 }
 
 .green-bottom-border {
